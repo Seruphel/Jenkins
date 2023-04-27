@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'URL', description: 'URL Java Project to Build')
-        string(name: 'BRANCH', defaultValues:'main', description: 'Branch to Build')
+        string(name:'URL',defaultValues ,description: 'URL Java Project to Build')
+        string(name:'BRANCH',defaultValues:'main', description: 'Branch to Build')
     }
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -13,8 +13,8 @@ pipeline {
         stage('Git') {
             steps {
                 // Get some code from a GitHub repository
-                 git url: "${params.URL}" ,
-                     branch: "${params.BRANCH}"   
+                 git url:"${params.URL}" ,
+                     branch:"${params.BRANCH}"   
                       
             }  
         }  
