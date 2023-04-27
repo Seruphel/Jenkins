@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name:'URL',defaultValues ,description: 'URL Java Project to Build')
+        string(name:'URL',defaultValues,description: 'URL Java Project to Build')
         string(name:'BRANCH',defaultValues:'main', description: 'Branch to Build')
     }
     tools {
