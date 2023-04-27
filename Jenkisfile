@@ -10,8 +10,8 @@ pipeline {
         stage('Git') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Seruphel/Jenkins.git'
-                git branch:'main'
+                 git branch: 'main',
+                 url: 'https://github.com/matthcol/movieapp_jdbc.git'
 
             }    // Run Maven on a Unix agent.
             }    // sh "mvn -Dmaven.test.failure.ignore=true clean package"
