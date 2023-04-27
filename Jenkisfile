@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string(name:'URL',description: 'URL Java Project to Build')
-        string(name:'BRANCH',defaultValues:'main', description: 'Branch to Build')
+        string(name:'BRANCH',defaultValue:'main', description: 'Branch to Build')
     }
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
