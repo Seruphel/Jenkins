@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    parameters {
+        string(name: 'URL', description: 'URL Java Project to Build')
+        string(name: 'BRANCH', defaultValues:'main', description: 'Branch to Build')
+    }
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
@@ -10,11 +13,11 @@ pipeline {
         stage('Git') {
             steps {
                 // Get some code from a GitHub repository
-                 git branch: 'main',
-                 url: 'https://github.com/matthcol/movieapp_jdbc.git'
-
-            }    // Run Maven on a Unix agent.
-            }    // sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                 git url: "${params.URL}" ,
+                     branch: "${params.BRANCH}"   
+                      
+            }  
+        }  
 
         stage('Compile') {
             steps {
